@@ -1,0 +1,21 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /aq-test
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@127.0.0.1:1521/orcl
+    username: aq-test
+    password: aq-test
+
+queue:
+  aq:
+    # 该队列是否可用，用来控制队列的加载和重连，不可省略
+    enable: true
+    # 队列名称，不可省略
+    name: QUEUE_TEST
+    # 队列重连的定时任务对应的时间表达式，不可省略
+    cron: 0 */1 * * * ?
